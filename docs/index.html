@@ -1,29 +1,252 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>NeuroAssist – NeuroAssist</title>
-  <link rel="stylesheet" href="static/css/styles.css">
-</head>
-<body class="layout-marketing" data-nav="marketing" data-nav-depth="0" data-active="index.html" data-show-footer="true">
-  <a class="skip-link" href="#main-content">Skip to main content</a>
-  <div id="nav-root"></div>
-  <main id="main-content" class="main-marketing">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    <section class="stack-lg" style="padding-top:1rem;padding-bottom:3rem;max-width:40rem">
-      <h1 class="hero-title" style="font-size:2rem">Live captions in your browser</h1>
-      <p class="muted" style="font-size:1.05rem;margin-top:0.75rem">
-        Tap the button, allow the microphone, and read what is being said. Works best in Chrome on a computer.
+  <title>NeuroAssist</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, Helvetica, sans-serif;
+    }
+
+    body{
+      min-height:100vh;
+      color:white;
+
+      background:
+        linear-gradient(
+          rgba(4, 16, 35, 0.65),
+          rgba(4, 16, 35, 0.78)
+        ),
+        url("assets/background.jpg");
+
+      background-size:cover;
+      background-position:center;
+      background-repeat:no-repeat;
+    }
+
+    nav{
+      width:100%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+
+      padding:28px 8%;
+
+      background:rgba(0,0,0,0.18);
+      backdrop-filter:blur(10px);
+    }
+
+    .logo{
+      font-size:1.7rem;
+      font-weight:800;
+      letter-spacing:1px;
+    }
+
+    nav ul{
+      display:flex;
+      list-style:none;
+      gap:30px;
+    }
+
+    nav a{
+      text-decoration:none;
+      color:white;
+      font-weight:700;
+      transition:0.2s ease;
+    }
+
+    nav a:hover{
+      color:#ffb38a;
+    }
+
+    .hero{
+      min-height:calc(100vh - 90px);
+
+      display:flex;
+      align-items:center;
+
+      padding:0 8%;
+    }
+
+    .hero-card{
+      max-width:680px;
+
+      padding:50px;
+
+      border-radius:28px;
+
+      background:rgba(255,255,255,0.14);
+
+      border:1px solid rgba(255,255,255,0.2);
+
+      backdrop-filter:blur(14px);
+
+      box-shadow:0 25px 70px rgba(0,0,0,0.35);
+    }
+
+    .tag{
+      display:inline-block;
+
+      margin-bottom:18px;
+
+      padding:8px 16px;
+
+      border-radius:999px;
+
+      background:#ff7e42;
+
+      font-size:0.85rem;
+      font-weight:800;
+    }
+
+    h1{
+      font-size:clamp(3rem, 7vw, 5.5rem);
+
+      line-height:1;
+
+      margin-bottom:24px;
+    }
+
+    p{
+      font-size:1.15rem;
+
+      line-height:1.7;
+
+      margin-bottom:34px;
+
+      max-width:560px;
+    }
+
+    .buttons{
+      display:flex;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      text-decoration:none;
+
+      padding:14px 26px;
+
+      border-radius:999px;
+
+      font-weight:800;
+
+      transition:0.25s ease;
+    }
+
+    .btn-primary{
+      background:#ff7e42;
+      color:white;
+    }
+
+    .btn-secondary{
+      border:2px solid rgba(255,255,255,0.8);
+      color:white;
+    }
+
+    .btn:hover{
+      transform:translateY(-3px);
+
+      box-shadow:0 12px 28px rgba(0,0,0,0.3);
+    }
+
+    @media(max-width:700px){
+
+      nav{
+        flex-direction:column;
+        gap:16px;
+      }
+
+      nav ul{
+        gap:18px;
+        flex-wrap:wrap;
+        justify-content:center;
+      }
+
+      .hero{
+        padding:40px 6%;
+      }
+
+      .hero-card{
+        padding:32px;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <nav>
+
+    <div class="logo">
+      NeuroAssist
+    </div>
+
+    <ul>
+      <li><a href="index.html">Home</a></li>
+
+      <li>
+        <a href="app/captions.html">
+          Live Captioning
+        </a>
+      </li>
+
+      <li>
+        <a href="help.html">
+          Help
+        </a>
+      </li>
+    </ul>
+
+  </nav>
+
+  <section class="hero">
+
+    <div class="hero-card">
+
+      <span class="tag">
+        Accessible Communication
+      </span>
+
+      <h1>
+        Helping every voice be heard.
+      </h1>
+
+      <p>
+        NeuroAssist helps users communicate easier
+        through accessible live captioning and supportive tools
+        designed for real world conversations.
       </p>
-      <div style="margin-top:1.5rem;display:flex;flex-wrap:wrap;gap:0.75rem;align-items:center">
-        <a class="btn btn-primary btn-lg" href="app/captions.html">Start captions</a>
-        <a class="btn btn-ghost" href="help.html">How this works</a>
+
+      <div class="buttons">
+
+        <a
+          href="app/captions.html"
+          class="btn btn-primary"
+        >
+          Start Captioning
+        </a>
+
+        <a
+          href="help.html"
+          class="btn btn-secondary"
+        >
+          Help Page
+        </a>
+
       </div>
-    </section>
-  </main>
-<div id="footer-root"></div>
-<script src="static/js/footer.js" defer></script>
-  <script src="static/js/nav.js" defer></script>
+
+    </div>
+
+  </section>
+
 </body>
 </html>
