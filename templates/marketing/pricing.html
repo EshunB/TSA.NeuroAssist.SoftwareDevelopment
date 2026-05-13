@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Pricing{% endblock %}
+{% block content %}
+<div class="page-header">
+  <div>
+    <h1>Pricing</h1>
+    <p class="page-header-desc">The local demo of NeuroAssist is free to run on your own machine. A future Pro plan is planned for power users.</p>
+  </div>
+</div>
+<div class="grid-2" style="gap:1.5rem">
+  <article class="card card-emerald">
+    <div class="card-header"><h2 class="card-title" style="font-size:1rem;font-weight:600">Free demo (local)</h2></div>
+    <div class="card-body small muted stack-md">
+      <p>Run NeuroAssist on your own laptop using your browser’s built-in speech recognition. No account, no cloud upload, and no API keys.</p>
+      <ul class="list-disc" style="padding-left:1.25rem">
+        <li>✓ Live captions from your microphone</li>
+        <li>✓ Mock translation for testing the workflow</li>
+        <li>✓ Local SQLite database for transcripts</li>
+        <li>✓ Basic settings and keyboard shortcuts</li>
+      </ul>
+      <a class="btn btn-primary btn-sm" href="/docs/getting-started" style="margin-top:0.5rem">Set up on your laptop</a>
+    </div>
+  </article>
+  <article class="card">
+    <div class="card-header"><h2 class="card-title" style="font-size:1rem;font-weight:600">Pro (coming later)</h2></div>
+    <div class="card-body small muted stack-md">
+      <p>A future Pro edition is planned for people who rely on captions every day, with deeper customization and optional cloud sync.</p>
+      <ul class="list-disc" style="padding-left:1.25rem">
+        <li>• Advanced theming and profiles</li>
+        <li>• Real translation providers (bring your own key)</li>
+        <li>• Multi-device sync and backup</li>
+      </ul>
+      <p style="color:var(--slate-400)">For now, everything in this repository is focused on the accessible, local-first experience.</p>
+    </div>
+  </article>
+</div>
+{% endblock %}

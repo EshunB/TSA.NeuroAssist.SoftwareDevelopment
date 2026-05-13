@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}How live captions work{% endblock %}
+{% block content %}
+<div class="stack-md small" style="color:var(--slate-800);max-width:48rem">
+  <h1 style="font-size:1.25rem;font-weight:600;margin:0">How live captions work</h1>
+  <p>NeuroAssist uses the Web Speech API exposed by your browser. When you start listening, the app asks the browser to convert microphone audio into text, then renders that text as a stream of caption segments.</p>
+  <p>Each segment includes timing information, confidence (when available), and speaker metadata. When you save a session, those segments are persisted to the local SQLite database as a <code class="code-inline">TranscriptSession</code> and multiple <code class="code-inline">TranscriptSegment</code> records.</p>
+</div>
+{% endblock %}

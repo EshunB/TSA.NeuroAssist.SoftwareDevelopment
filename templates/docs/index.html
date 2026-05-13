@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Documentation{% endblock %}
+{% block content %}
+<div class="stack-md" style="gap:1.5rem">
+  <header class="stack-md" style="gap:0.5rem">
+    <p class="small" style="font-weight:600;text-transform:uppercase;letter-spacing:0.05em;color:var(--sky-700)">NeuroAssist Docs</p>
+    <h1 style="font-size:1.5rem;font-weight:600;margin:0">Documentation</h1>
+    <p class="small muted" style="max-width:42rem">Learn how to run NeuroAssist locally, how live captions work in the browser, and how to extend the app with your own speech and translation providers.</p>
+  </header>
+  <nav class="docs-grid" aria-label="Documentation sections">
+    <a class="docs-link-card" href="/docs/getting-started">
+      <p style="font-weight:500;margin:0">Getting started</p>
+      <p class="small muted" style="margin-top:0.25rem">Install Python, set up the database, and run the server.</p>
+    </a>
+    <a class="docs-link-card" href="/docs/how-live-captions-work">
+      <p style="font-weight:500;margin:0">How live captions work</p>
+      <p class="small muted" style="margin-top:0.25rem">Under the hood: Web Speech API, segments, and saving sessions.</p>
+    </a>
+    <a class="docs-link-card" href="/docs/translation">
+      <p style="font-weight:500;margin:0">Translation</p>
+      <p class="small muted" style="margin-top:0.25rem">Captions-only mode and future translation options.</p>
+    </a>
+    <a class="docs-link-card" href="/docs/keyboard-shortcuts">
+      <p style="font-weight:500;margin:0">Keyboard shortcuts</p>
+      <p class="small muted" style="margin-top:0.25rem">All of the key bindings for captions, saving, and navigation.</p>
+    </a>
+    <a class="docs-link-card" href="/docs/troubleshooting">
+      <p style="font-weight:500;margin:0">Troubleshooting</p>
+      <p class="small muted" style="margin-top:0.25rem">Common issues like microphone permissions and unsupported browsers.</p>
+    </a>
+    <a class="docs-link-card" href="/docs/changelog">
+      <p style="font-weight:500;margin:0">Changelog</p>
+      <p class="small muted" style="margin-top:0.25rem">A running log of changes to this demo.</p>
+    </a>
+  </nav>
+</div>
+{% endblock %}

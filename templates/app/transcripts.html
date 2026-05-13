@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title %}Transcripts{% endblock %}
+{% block content %}
+<div class="page-header">
+  <div>
+    <h1>Transcripts</h1>
+    <p class="page-header-desc">Browse your saved sessions. Click a transcript to see its details.</p>
+  </div>
+</div>
+<article class="card">
+  <div class="card-header"><h2 class="card-title">Saved sessions</h2></div>
+  <div class="card-body small" style="color:var(--slate-700)">
+    {% if error %}
+    <p class="alert alert-red-dark">{{ error }}</p>
+    {% endif %}
+    {% if not error and sessions|length == 0 %}
+    <p class="muted">No transcripts yet. Save a session from Live Captions to see it here.</p>
+    {% endif %}
+    <ul class="stack-md" style="list-style:none;padding:0;margin:0">
+      {% for session in sessions %}
+      <li>
+        <a class="session-link" href="/app/transcripts/{{ session.id }}">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:0.5rem">
+            <p style="margin:0;font-size:0.75rem;font-weight:600;color:var(--slate-900)">{{ session.title }}</p>
+            <span class="badge">{{ session.mode }}</span>
+          </div>
+          <p class="session-meta">{{ session.createdAt }} • {{ session.languageSource }}{% if session.languageTarget %} → {{ session.languageTarget }}{% endif %}</p>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</article>
+{% endblock %}

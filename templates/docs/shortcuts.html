@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Keyboard shortcuts{% endblock %}
+{% block content %}
+<div class="stack-md small" style="color:var(--slate-800);max-width:48rem">
+  <h1 style="font-size:1.25rem;font-weight:600;margin:0">Keyboard shortcuts</h1>
+  <ul class="stack-md" style="list-style:none;padding:0">
+    <li><span class="kbd">Space</span> – Start or pause live captioning on the /app/captions page.</li>
+    <li><span class="kbd">Ctrl / Cmd + S</span> – Save the current caption session to the local database.</li>
+    <li><span class="kbd">Esc</span> – Stop listening without clearing the current on-screen captions.</li>
+  </ul>
+</div>
+{% endblock %}

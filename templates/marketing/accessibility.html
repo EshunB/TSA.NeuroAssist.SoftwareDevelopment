@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Accessibility{% endblock %}
+{% block content %}
+<div class="page-header">
+  <div>
+    <h1>Accessibility at NeuroAssist</h1>
+    <p class="page-header-desc">NeuroAssist is built for people who prefer to read, who rely on captions, and who navigate primarily with the keyboard.</p>
+  </div>
+</div>
+<article class="card">
+  <div class="card-body" style="font-size:0.875rem;color:var(--slate-700)">
+    <p>The interface is designed with WCAG guidance in mind: high contrast text, large tap targets, visible focus outlines, and layouts that adapt to different viewport sizes. Every interactive element is reachable with the keyboard.</p>
+    <p>Captions prioritize legibility over decoration. You can adjust font size, line height, and color themes from the in-app settings. We avoid motion where possible and never rely on color alone to convey important information.</p>
+  </div>
+</article>
+{% endblock %}

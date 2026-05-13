@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Security{% endblock %}
+{% block content %}
+<div class="page-header">
+  <div>
+    <h1>Security</h1>
+    <p class="page-header-desc">The local demo of NeuroAssist keeps your data on your machine by default.</p>
+  </div>
+</div>
+<article class="card">
+  <div class="card-body" style="font-size:0.875rem;color:var(--slate-700)">
+    <p>In this demo, transcripts are stored in a local SQLite database bundled with the app. There is no built-in cloud sync or data export to remote servers.</p>
+    <p>If you adapt this project into a hosted product, you can layer on proper authentication, encryption at rest, and network-level protections. The codebase is structured so you can swap providers and infrastructure later.</p>
+  </div>
+</article>
+{% endblock %}

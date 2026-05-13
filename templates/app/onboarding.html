@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Onboarding{% endblock %}
+{% block content %}
+<div class="page-header">
+  <div>
+    <h1>Onboarding</h1>
+    <p class="page-header-desc">A simple first-run checklist to get you comfortable with NeuroAssist.</p>
+  </div>
+</div>
+<article class="card card-dark">
+  <div class="card-body stack-md">
+    <ol class="list-decimal">
+      <li>Confirm your microphone is connected and working.</li>
+      <li>Visit the <a href="/app/captions" class="underline">Live Captions</a> page.</li>
+      <li>Allow microphone access when your browser asks.</li>
+      <li>Say a sentence out loud and watch it appear on screen.</li>
+      <li>Press Ctrl / Cmd + S to save a test session.</li>
+    </ol>
+    <a class="btn btn-primary btn-sm" href="/app/captions" style="margin-top:0.5rem">Start Live Captions</a>
+  </div>
+</article>
+{% endblock %}

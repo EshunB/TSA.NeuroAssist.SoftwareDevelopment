@@ -1,0 +1,27 @@
+<header class="site-header">
+  <div class="site-header-inner">
+    <div class="nav-cluster">
+      <a href="/" class="brand">NeuroAssist</a>
+      <nav class="site-nav" aria-label="{% if nav == 'app' %}App navigation{% else %}Site navigation{% endif %}">
+        {% if nav == 'app' %}
+          <a href="/app/captions" class="nav-link {% if request.path == '/app/captions' %}active{% endif %}">Captions</a>
+          <a href="/app/transcripts" class="nav-link {% if request.path.startswith('/app/transcripts') %}active{% endif %}">History</a>
+          <a href="/app/settings" class="nav-link {% if request.path.startswith('/app/settings') %}active{% endif %}">Settings</a>
+        {% else %}
+          <a href="/features" class="nav-link {% if request.path == '/features' %}active{% endif %}">Features</a>
+          <a href="/pricing" class="nav-link {% if request.path == '/pricing' %}active{% endif %}">Pricing</a>
+          <a href="/about" class="nav-link {% if request.path == '/about' %}active{% endif %}">About</a>
+          <a href="/docs" class="nav-link {% if request.path.startswith('/docs') %}active{% endif %}">Docs</a>
+          <a href="/contact" class="nav-link {% if request.path == '/contact' %}active{% endif %}">Contact</a>
+        {% endif %}
+      </nav>
+    </div>
+    <div class="header-actions">
+      {% if nav == 'app' %}
+        <a class="btn btn-outline btn-sm" href="/docs">Docs</a>
+      {% else %}
+        <a class="btn btn-primary btn-sm" href="/app">Open app</a>
+      {% endif %}
+    </div>
+  </div>
+</header>

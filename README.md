@@ -1,77 +1,70 @@
-# NeuroAssist – Live Captions Dashboard
+# NeuroAssist
 
-NeuroAssist is a web dashboard app that turns speech into easy‑to‑read captions in real time from the microphone.
-NeuroAssist is designed for hearing‑impaired users and runs locally in your browser on a laptop or desktop.
+Simple **live captions** in the browser. The public site lives in [`docs/`](docs/) for **GitHub Pages** (no server for visitors). Saved sessions stay in the browser on that device only.
 
-## Features
+## Publish on GitHub Pages
 
-- **Live Speech‑to‑Text Captions** – Neuro Assist uses the browser’s Web Speech API to turn spoken words into text.
-- **Transcript History** – Neuro Assist saves caption sessions, allowing you to browse them later, and copy or export the text.
-- **Accessibility‑First** – Neuro Assist utilizes high‑contrast captions, keyboard shortcuts, and a layout focused on readability.
-- **Privacy‑Focused** – Neuro Assist uses a local SQLite database; no external AI APIs or cloud services are required.
+1. Put this project on GitHub (see **Create a new repository** below if you need that).
+2. Repo **Settings → Pages**.
+3. **Source**: your default branch, folder **`/docs`**, save.
+4. Open the URL GitHub shows (often `https://<you>.github.io/<repo>/`).
 
-## How to run NeuroAssist on your laptop
+Then open the site and use **Start** → **Captions**. Chrome on a computer works best.
 
-### Prerequisites
-- Node.js 18+
-- A modern browser (Chrome, Edge, or Safari)
+---
 
-### 1. Clone this repository
+## Create a new repository on GitHub with these files
 
-```bash
-# Open your laptop's terminal.
+**On GitHub (in the browser)**
 
-git clone https://github.com/EshunB/TSA.NeuroAssist.git
-cd TSA.NeuroAssist
-```
+1. Sign in at [github.com](https://github.com).
+2. Click your profile (top right) → **Your repositories** → green **New** (or go to [github.com/new](https://github.com/new)).
+3. **Repository name**: e.g. `NeuroAssist` (any name you like).
+4. Choose **Public** (GitHub Pages is easiest on a public repo; private Pages needs a paid plan).
+5. Leave **Add a README** unchecked if you already have files on your computer to upload.
+6. Click **Create repository**.
 
-### 2. Install dependencies
+**On your computer** (in Terminal, inside this project folder)
 
-```bash
-npm install
-```
-
-### 3. Set up the local database
-
-This project uses a local SQLite database via Prisma. The following command
-creates (or updates) the database file based on `prisma/schema.prisma`:
+If this folder is **not** a git repo yet:
 
 ```bash
-npx prisma db push
+git init
+git add .
+git commit -m "Initial commit"
+git branch -M main
+git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
+git push -u origin main
 ```
 
-You do **not** need any cloud database or API keys for the demo.
+Replace `YOUR_USERNAME` and `YOUR_REPO_NAME` with what you chose on GitHub. GitHub’s empty-repo page also shows these commands with the correct URL—copy from there if you prefer.
 
-### 4. Start the development server
-
-By default the app runs on port 5000:
+If the repo **already** exists and you only need to push updates:
 
 ```bash
-npm run dev
+git add .
+git commit -m "Update site"
+git push
 ```
 
-Then open your browser to:
+After the first push, turn on **Pages** from the **`/docs`** folder as above.
 
-```text
-http://localhost:5000
-```
+---
 
-If port 5000 is already in use on your machine, you can instead run:
+## Optional: local Python server
+
+From the repo root (for SQLite instead of browser storage):
 
 ```bash
-npx next dev -p 3000 -H 0.0.0.0
+python -m venv .venv && source .venv/bin/activate
+pip install -r requirements.txt
+python app.py
 ```
 
-and open:
+Open `http://localhost:5000`. That uses Flask + `templates/`, not the static `docs/` tree.
 
-```text
-http://localhost:3000
+### Regenerate `docs/*.html` after editing the generator
+
+```bash
+python3 docs/_build_static_pages.py
 ```
-
-### 5. Using the app
-
-- From the landing page, click Open App in the top‑right.
-- On the Dashboard, follow the quick‑start steps and click Live Captions.
-- Grant microphone access in your browser when prompted.
-- Press Space to start/stop listening, and Ctrl/Cmd + S to save a session.
-

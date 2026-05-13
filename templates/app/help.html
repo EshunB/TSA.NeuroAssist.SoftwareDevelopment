@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Help{% endblock %}
+{% block content %}
+<div class="page-header">
+  <div>
+    <h1>Help &amp; FAQ</h1>
+    <p class="page-header-desc">Quick answers to common questions, with links into the docs.</p>
+  </div>
+</div>
+<article class="card card-dark">
+  <div class="card-body stack-md">
+    <p>For detailed setup instructions, see <a href="/docs/getting-started" class="underline">Getting started</a>. To learn how captions work, visit <a href="/docs/how-live-captions-work" class="underline">How live captions work</a>.</p>
+    <p>If speech recognition is not working or your browser says it’s unsupported, check <a href="/docs/troubleshooting" class="underline">Troubleshooting</a>.</p>
+  </div>
+</article>
+{% endblock %}

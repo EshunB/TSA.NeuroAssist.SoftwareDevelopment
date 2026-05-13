@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block title %}Features{% endblock %}
+{% block content %}
+<div class="page-header">
+  <div>
+    <h1>Features</h1>
+    <p class="page-header-desc">Everything in NeuroAssist is designed around one goal: make spoken words easier to follow and remember.</p>
+  </div>
+  <div class="page-header-actions">
+    <a class="btn btn-outline btn-sm" href="/app/captions">Try live captions</a>
+  </div>
+</div>
+<div class="grid-2">
+  <article class="card">
+    <div class="card-header"><h2 class="card-title" style="font-weight:600">Live captions</h2></div>
+    <div class="card-body">
+      <ul class="small muted list-disc" style="padding-left:1.25rem">
+        <li>Continuous captioning tuned for conversations and meetings.</li>
+        <li>High-contrast caption blocks that auto-scroll as you speak.</li>
+        <li>Keyboard shortcuts for start, pause, and save – no tiny buttons.</li>
+      </ul>
+    </div>
+  </article>
+  <article class="card">
+    <div class="card-header"><h2 class="card-title" style="font-weight:600">Live translation</h2></div>
+    <div class="card-body">
+      <ul class="small muted list-disc" style="padding-left:1.25rem">
+        <li>Optional second column that mirrors captions in another language.</li>
+        <li>Mock translation engine that works out of the box (no API keys).</li>
+        <li>Pluggable provider interface so you can wire real APIs later.</li>
+      </ul>
+    </div>
+  </article>
+  <article class="card">
+    <div class="card-header"><h2 class="card-title" style="font-weight:600">Transcript library</h2></div>
+    <div class="card-body">
+      <ul class="small muted list-disc" style="padding-left:1.25rem">
+        <li>Save a session in one shortcut and revisit it any time.</li>
+        <li>Search across titles and transcript text.</li>
+        <li>Export your data, including caption timings, as plain text or caption files.</li>
+      </ul>
+    </div>
+  </article>
+  <article class="card">
+    <div class="card-header"><h2 class="card-title" style="font-weight:600">Accessibility and comfort</h2></div>
+    <div class="card-body">
+      <ul class="small muted list-disc" style="padding-left:1.25rem">
+        <li>Adjustable font size, line height, and caption density.</li>
+        <li>Theme options tuned for contrast and low-light use.</li>
+        <li>Keyboard-first navigation across the entire app.</li>
+      </ul>
+    </div>
+  </article>
+</div>
+{% endblock %}

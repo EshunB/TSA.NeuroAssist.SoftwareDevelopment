@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block title %}Live Captions{% endblock %}
+{% block content %}
+<div class="page-header">
+  <div>
+    <h1>Live Captions</h1>
+    <p class="page-header-desc">See what’s being said around you in real time. Use Space to start or pause, and Ctrl/Cmd+S to save.</p>
+  </div>
+  <div class="page-header-actions">
+    <button type="button" class="btn btn-primary" id="btn-toggle-listen" aria-pressed="false">Start listening (Space)</button>
+    <button type="button" class="btn btn-outline" id="btn-clear" disabled>Clear</button>
+    <button type="button" class="btn btn-secondary" id="btn-save" disabled>Save session (Ctrl/Cmd+S)</button>
+    <button type="button" class="btn btn-outline" id="btn-copy" disabled>Copy text</button>
+  </div>
+</div>
+
+<div class="grid-captions">
+  <section class="captions-panel">
+    <div class="captions-panel-head">
+      <h2 class="card-title">Live captions stream</h2>
+      <span class="small muted">Status: <span id="caption-status" class="small" style="color:var(--slate-900);font-weight:500">Stopped</span></span>
+    </div>
+    <div style="padding:0 1rem">
+      <p id="banner-unsupported" class="alert alert-amber" style="display:none;margin-bottom:0.75rem"></p>
+      <p id="banner-error" class="alert alert-red" style="display:none;margin-bottom:0.75rem"></p>
+    </div>
+    <div id="captions-stream" class="captions-scroll" aria-label="Live captions">
+      <p class="small muted">Press <strong>Space</strong> or select <strong>Start listening</strong> to see captions here.</p>
+    </div>
+  </section>
+
+  <article class="card">
+    <div class="card-header" style="padding-bottom:1rem"><h2 class="card-title" style="font-size:1rem;font-weight:600">Session Settings</h2></div>
+    <div class="card-body stack-md small muted" style="padding-top:1.5rem">
+      <div>
+        <label class="form-label" for="caption-language" style="text-transform:uppercase;letter-spacing:0.05em;color:var(--slate-500)">Language</label>
+        <select class="select" id="caption-language" aria-label="Caption language">
+          <option value="en-US">English (US)</option>
+          <option value="en-GB">English (UK)</option>
+          <option value="es-ES">Spanish</option>
+          <option value="fr-FR">French</option>
+        </select>
+      </div>
+      <div style="display:flex;justify-content:space-between;border-top:1px solid var(--slate-100);padding-top:1rem">
+        <span style="font-weight:500;color:var(--slate-700)">Total Segments</span>
+        <span id="segment-count" style="font-size:1.125rem;font-weight:700;color:var(--slate-900)">0</span>
+      </div>
+      <div style="display:none;justify-content:space-between" id="session-length-row">
+        <span class="small" style="color:var(--slate-700)">Session length</span>
+        <span id="session-length" class="small" style="font-weight:600;color:var(--slate-900)"></span>
+      </div>
+      <div>
+        <p class="small" style="font-weight:500;color:var(--slate-900)">Keyboard shortcuts</p>
+        <ul class="stack-md small" style="list-style:none;padding:0;margin-top:0.25rem">
+          <li><span class="kbd">Space</span> Start / pause listening</li>
+          <li><span class="kbd">Ctrl / Cmd + S</span> Save session</li>
+          <li><span class="kbd">Esc</span> Stop listening</li>
+        </ul>
+      </div>
+      <p id="save-error" class="alert alert-red" style="display:none"></p>
+      <div>
+        <p class="small" style="font-weight:500;color:var(--slate-900)">Current buffer</p>
+        <div id="full-buffer" class="small" style="height:6rem;overflow:auto;border-radius:0.375rem;border:1px solid var(--slate-200);background:var(--slate-50);padding:0.35rem 0.5rem;line-height:1.5;color:var(--slate-900)"></div>
+        <p class="small" style="margin-top:0.25rem;color:var(--slate-500);font-size:0.6875rem">Use the <strong>Copy text</strong> button above to copy everything from this session.</p>
+      </div>
+    </div>
+  </article>
+</div>
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/captions.js') }}" defer></script>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Troubleshooting{% endblock %}
+{% block content %}
+<div class="stack-md small" style="color:var(--slate-800);max-width:48rem">
+  <h1 style="font-size:1.25rem;font-weight:600;margin:0">Troubleshooting</h1>
+  <ul class="stack-md list-disc" style="padding-left:1.25rem">
+    <li><strong>Captions are not appearing</strong>: Make sure you have granted microphone access in your browser and that you are using a browser that supports the Web Speech API (Chrome on desktop works best).</li>
+    <li><strong>Browser says the feature is unsupported</strong>: If you see a message that your browser does not support speech recognition, try switching to Chrome on a desktop or laptop device.</li>
+    <li><strong>Saving a session fails</strong>: Ensure that the Python server is still running and that the SQLite database file is writable. On first launch the app creates tables automatically if the database is new.</li>
+  </ul>
+</div>
+{% endblock %}

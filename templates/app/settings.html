@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Settings{% endblock %}
+{% block content %}
+<div class="page-header">
+  <div>
+    <h1>Settings</h1>
+    <p class="page-header-desc">Fine-tune how NeuroAssist listens, looks, and behaves.</p>
+  </div>
+</div>
+<div class="grid-2">
+  <article class="card card-dark">
+    <div class="card-header" style="border-color:rgba(51,65,85,0.5)"><h2 class="card-title" style="color:var(--slate-100)"><a href="/app/settings/audio" style="text-decoration:none;color:inherit">Audio</a></h2></div>
+    <div class="card-body">Microphone selection and capture options.</div>
+  </article>
+  <article class="card card-dark">
+    <div class="card-header" style="border-color:rgba(51,65,85,0.5)"><h2 class="card-title" style="color:var(--slate-100)"><a href="/app/settings/translation" style="text-decoration:none;color:inherit">Display</a></h2></div>
+    <div class="card-body">Caption layout, size, and appearance.</div>
+  </article>
+  <article class="card card-dark">
+    <div class="card-header" style="border-color:rgba(51,65,85,0.5)"><h2 class="card-title" style="color:var(--slate-100)"><a href="/app/settings/accessibility" style="text-decoration:none;color:inherit">Accessibility</a></h2></div>
+    <div class="card-body">Fonts, contrast, and caption styles.</div>
+  </article>
+  <article class="card card-dark">
+    <div class="card-header" style="border-color:rgba(51,65,85,0.5)"><h2 class="card-title" style="color:var(--slate-100)"><a href="/app/settings/privacy" style="text-decoration:none;color:inherit">Privacy</a></h2></div>
+    <div class="card-body">Data retention and local-only mode.</div>
+  </article>
+  <article class="card card-dark">
+    <div class="card-header" style="border-color:rgba(51,65,85,0.5)"><h2 class="card-title" style="color:var(--slate-100)"><a href="/app/settings/shortcuts" style="text-decoration:none;color:inherit">Shortcuts</a></h2></div>
+    <div class="card-body">Keyboard shortcuts and customization.</div>
+  </article>
+  <article class="card card-dark">
+    <div class="card-header" style="border-color:rgba(51,65,85,0.5)"><h2 class="card-title" style="color:var(--slate-100)"><a href="/app/settings/account" style="text-decoration:none;color:inherit">Account</a></h2></div>
+    <div class="card-body">Profile and identity settings.</div>
+  </article>
+</div>
+{% endblock %}

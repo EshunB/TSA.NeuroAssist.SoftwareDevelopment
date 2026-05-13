@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Getting started{% endblock %}
+{% block content %}
+<div class="stack-md small" style="color:var(--slate-800);max-width:48rem">
+  <h1 style="font-size:1.25rem;font-weight:600;margin:0">Getting started</h1>
+  <p>NeuroAssist is a local-first demo that runs on your machine using Python (Flask), SQLite, and the Web Speech API built into your browser.</p>
+  <ol class="list-decimal">
+    <li>Install Python 3.10+.</li>
+    <li>Create a virtual environment and install dependencies: <code class="code-inline">python -m venv .venv &amp;&amp; source .venv/bin/activate &amp;&amp; pip install -r requirements.txt</code></li>
+    <li>Ensure the SQLite schema exists. If <code class="code-inline">prisma/dev.db</code> is missing, the app creates tables from <code class="code-inline">prisma/migrations/20260226125929_init/migration.sql</code> on first request.</li>
+    <li>Start the server: <code class="code-inline">python app.py</code> and open <code class="code-inline">http://localhost:5000</code>.</li>
+    <li>Navigate to <code class="code-inline">/app/captions</code> to begin live captioning.</li>
+  </ol>
+</div>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+<div class="page-header">
+  <div>
+    <h1>Welcome to NeuroAssist</h1>
+    <p class="page-header-desc">Quickly start live captions and review your recent transcripts in one simple dashboard.</p>
+  </div>
+</div>
+<div class="grid-dashboard">
+  <article class="card">
+    <div class="card-header"><h2 class="card-title" style="font-weight:600">Quick start with captions</h2></div>
+    <div class="card-body small muted">
+      <ol class="list-decimal">
+        <li>Connect your microphone and open <a href="/app/captions" style="font-weight:500">Live Captions</a>.</li>
+        <li>Press Space to start or pause listening at any time.</li>
+        <li>Press Ctrl/Cmd+S to save a captions session to your history.</li>
+        <li>Visit Settings to adjust fonts, contrast, shortcuts, and more.</li>
+      </ol>
+    </div>
+  </article>
+  <article class="card" style="background:var(--slate-50)">
+    <div class="card-header"><h2 class="card-title" style="font-size:0.875rem;font-weight:600">Device status</h2></div>
+    <div class="card-body small muted stack-md">
+      <p>NeuroAssist uses your browser’s microphone and the Web Speech API. The first time you start captions, your browser will ask for microphone access.</p>
+      <p>For the most reliable experience, we recommend using Chrome on desktop with a wired or high‑quality headset.</p>
+    </div>
+  </article>
+</div>
+{% endblock %}

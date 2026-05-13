@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Captions – NeuroAssist</title>
+  <link rel="stylesheet" href="../static/css/styles.css">
+</head>
+<body class="layout-app" data-nav="app" data-nav-depth="1" data-active="captions.html">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="nav-root"></div>
+  <main id="main-content" class="main-app">
+    <div class="main-app-inner stack-lg">
+
+    <div class="page-header">
+      <div><h1>Captions</h1><p class="page-header-desc">Space to start or pause. Ctrl or Cmd + S to save.</p></div>
+      <div class="page-header-actions">
+        <button type="button" class="btn btn-primary" id="btn-toggle-listen" aria-pressed="false">Listen</button>
+        <button type="button" class="btn btn-outline" id="btn-clear" disabled>Clear</button>
+        <button type="button" class="btn btn-secondary" id="btn-save" disabled>Save</button>
+        <button type="button" class="btn btn-outline" id="btn-copy" disabled>Copy</button>
+      </div>
+    </div>
+    <div class="grid-captions">
+      <section class="captions-panel">
+        <div class="captions-panel-head">
+          <h2 class="card-title">Captions</h2>
+          <span class="small muted">Status: <span id="caption-status" style="font-weight:500;color:var(--slate-900)">Stopped</span></span>
+        </div>
+        <div style="padding:0 1rem">
+          <p id="banner-unsupported" class="alert alert-amber" style="display:none;margin-bottom:0.75rem"></p>
+          <p id="banner-error" class="alert alert-red" style="display:none;margin-bottom:0.75rem"></p>
+        </div>
+        <div id="captions-stream" class="captions-scroll" aria-live="polite">
+          <p class="small muted">Press <strong>Space</strong> or <strong>Listen</strong> to begin.</p>
+        </div>
+      </section>
+      <article class="card">
+        <div class="card-header"><h2 class="card-title">Language</h2></div>
+        <div class="card-body small muted" style="padding-top:1rem">
+          <select class="select" id="caption-language" aria-label="Language">
+            <option value="en-US">English (US)</option>
+            <option value="en-GB">English (UK)</option>
+            <option value="es-ES">Spanish</option>
+            <option value="fr-FR">French</option>
+          </select>
+          <p style="margin-top:1rem">Segments: <strong id="segment-count">0</strong></p>
+          <div style="display:none;margin-top:0.5rem" id="session-length-row"><span class="small">Length </span><span id="session-length"></span></div>
+          <p id="save-error" class="alert alert-red" style="display:none;margin-top:0.75rem"></p>
+          <p class="small" style="margin-top:1rem;font-weight:500">Buffer</p>
+          <div id="full-buffer" class="small" style="min-height:4rem;border:1px solid var(--slate-200);border-radius:0.375rem;padding:0.5rem;background:var(--slate-50)"></div>
+        </div>
+      </article>
+    </div>
+    </div>
+  </main>
+  <script src="../static/js/nav.js" defer></script>
+  <script src="../static/js/storage.js"></script>
+  <script src="../static/js/captions.js" defer></script>
+</body>
+</html>

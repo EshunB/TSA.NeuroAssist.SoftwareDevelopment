@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Changelog{% endblock %}
+{% block content %}
+<div class="stack-md small" style="color:var(--slate-800);max-width:48rem">
+  <h1 style="font-size:1.25rem;font-weight:600;margin:0">Changelog</h1>
+  <section>
+    <h2 class="small" style="font-weight:600;color:var(--slate-900)">Initial demo</h2>
+    <ul class="list-disc stack-md" style="padding-left:1.25rem;color:var(--slate-700)">
+      <li>Created NeuroAssist marketing site and docs section.</li>
+      <li>Implemented live captions using the Web Speech API.</li>
+      <li>Added demo translation provider and a pluggable interface (earlier stack).</li>
+      <li>Added a local SQLite-backed transcript store.</li>
+      <li>Migrated the web UI to HTML, CSS, and Python (Flask).</li>
+    </ul>
+  </section>
+</div>
+{% endblock %}

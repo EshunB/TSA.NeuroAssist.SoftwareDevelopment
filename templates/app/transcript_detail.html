@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}{{ session.title }}{% endblock %}
+{% block content %}
+<div class="page-header">
+  <div>
+    <h1>{{ session.title }}</h1>
+    <p class="page-header-desc">{{ session.mode }} • {{ session.languageSource }}{% if session.languageTarget %} → {{ session.languageTarget }}{% endif %}</p>
+  </div>
+</div>
+<article class="card">
+  <div class="card-header"><h2 class="card-title">Transcript</h2></div>
+  <div class="card-body small" style="color:var(--slate-700)">
+    {% if session.segments|length == 0 %}
+    <p class="muted">This transcript has no segments yet.</p>
+    {% else %}
+    <ul class="stack-md" style="list-style:none;padding:0;margin:0">
+      {% for segment in session.segments %}
+      <li class="segment-item">
+        <p class="segment-time">{{ segment.startTimeMs }}–{{ segment.endTimeMs }} ms</p>
+        <p style="color:var(--slate-900);margin:0">{{ segment.originalText }}</p>
+        {% if segment.translatedText %}
+        <p class="emerald" style="margin:0.125rem 0 0">{{ segment.translatedText }}</p>
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </div>
+</article>
+{% endblock %}

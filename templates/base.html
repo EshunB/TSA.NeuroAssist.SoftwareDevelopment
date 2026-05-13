@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}NeuroAssist{% endblock %} – Accessible Live Captions &amp; Translation</title>
+  <meta name="description" content="{% block meta_description %}NeuroAssist is a desktop assistant for hearing‑impaired people, providing live captions and translation for everyday conversations and calls.{% endblock %}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body class="{% if layout == 'app' %}layout-app{% else %}layout-marketing{% endif %}">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  {% include "partials/nav.html" %}
+
+  <main id="main-content" class="{% if layout == 'app' %}main-app{% elif narrow_main|default(false) %}main-docs{% else %}main-marketing{% endif %}">
+    {% if layout == 'app' %}<div class="main-app-inner stack-lg">{% endif %}
+    {% block content %}{% endblock %}
+    {% if layout == 'app' %}</div>{% endif %}
+  </main>
+
+  {% if show_footer %}
+  {% include "partials/footer.html" %}
+  {% endif %}
+
+  {% block scripts %}{% endblock %}
+</body>
+</html>

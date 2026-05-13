@@ -35,5 +35,10 @@ yarn-error.log*
 coverage
 .nyc_output
 
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+
 # Misc
 *.pem

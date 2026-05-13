@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Keyboard shortcuts{% endblock %}
+{% block content %}
+<div class="page-header">
+  <div>
+    <h1>Keyboard shortcuts</h1>
+    <p class="page-header-desc">Review the built-in shortcuts and imagine how you might customize them.</p>
+  </div>
+</div>
+<article class="card card-dark">
+  <div class="card-body stack-md">
+    <p>Current shortcuts:</p>
+    <ul class="stack-md" style="list-style:none;padding:0">
+      <li><span class="kbd">Space</span> – Start / pause listening on Live Captions.</li>
+      <li><span class="kbd">Ctrl / Cmd + S</span> – Save the current session.</li>
+      <li><span class="kbd">Esc</span> – Stop listening.</li>
+    </ul>
+    <p>A future version could allow per-user customization of these bindings, saved in the database.</p>
+  </div>
+</article>
+{% endblock %}
