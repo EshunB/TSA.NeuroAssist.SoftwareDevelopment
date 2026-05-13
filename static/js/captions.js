@@ -178,60 +178,57 @@
 
     recognition.continuous = true;
 
-    recognition.onresult = function (event) {
-      for (
-        var i = event.resultIndex;
-        i < event.results.length;
-        i++
+var pendingText = "";
+var captionTimer = null;
+
+recognition.onresult = function (event) {
+  for (var i = event.resultIndex; i < event.results.length; i++) {
+    var result = event.results[i];
+
+    var transcript = (
+      (result[0] && result[0].transcript) || ""
+    ).trim();
+
+    if (!transcript) continue;
+
+    pendingText = (pendingText + " " + transcript)
+      .replace(/\s+/g, " ")
+      .trim();
+
+    clearTimeout(captionTimer);
+
+    captionTimer = setTimeout(function () {
+      if (!pendingText) return;
+
+      var normalized = pendingText.toLowerCase();
+
+      var last = segments[segments.length - 1];
+
+      if (
+        last &&
+        last.text.trim().toLowerCase() === normalized
       ) {
-        var result = event.results[i];
-
-        // ONLY FINAL RESULTS
-        if (!result.isFinal) {
-          continue;
-        }
-
-        var transcript = (
-          (result[0] && result[0].transcript) || ""
-        ).trim();
-
-        if (!transcript) {
-          continue;
-        }
-
-        // PREVENT DUPLICATES
-        var normalized = transcript.toLowerCase();
-
-        var last =
-          segments[segments.length - 1];
-
-        if (
-          last &&
-          last.text
-            .trim()
-            .toLowerCase() === normalized
-        ) {
-          continue;
-        }
-
-        var now =
-          performance.now() - sessionStart;
-
-        segments.push({
-          id: Date.now() + Math.random(),
-          text: transcript,
-          confidence: result[0].confidence,
-          startTimeMs: Math.max(
-            0,
-            now - 1000
-          ),
-          endTimeMs: now
-        });
-
-        renderSegments();
-        updateCounts();
+        pendingText = "";
+        return;
       }
-    };
+
+      var now = performance.now() - sessionStart;
+
+      segments.push({
+        id: Date.now() + Math.random(),
+        text: pendingText,
+        confidence: null,
+        startTimeMs: Math.max(0, now - 2000),
+        endTimeMs: now
+      });
+
+      pendingText = "";
+
+      renderSegments();
+      updateCounts();
+    }, 1200);
+  }
+};
 
     recognition.onerror = function (event) {
       provider.status = "error";
