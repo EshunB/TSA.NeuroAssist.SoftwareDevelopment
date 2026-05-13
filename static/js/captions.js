@@ -162,20 +162,40 @@
     recognition.continuous = true;
 
     recognition.onresult = function (event) {
-      for (var i = event.resultIndex; i < event.results.length; i++) {
-        var result = event.results[i];
-        var transcript = (result[0] && result[0].transcript || "").trim();
-        if (!transcript) continue;
-        var confidence = result[0].confidence;
-        var now = performance.now() - sessionStart;
-        var segment = {
-  id: nextSegmentId++,
-  speaker: activeSpeaker,
-  text: transcript,
-  ts: nowIso()
+  for (var i = event.resultIndex; i < event.results.length; i++) {
+    var result = event.results[i];
+
+    if (!result.isFinal) continue;
+
+    var transcript = (result[0] && result[0].transcript || "").trim();
+    if (!transcript) continue;
+
+    var normalized = transcript.toLowerCase();
+    var last = segments[segments.length - 1];
+
+    if (
+      last &&
+      last.text.trim().toLowerCase() === normalized
+    ) {
+      continue;
+    }
+
+    var now = performance.now() - sessionStart;
+
+    segments.push({
+      id: Date.now() + Math.random(),
+      text: transcript,
+      confidence: result[0].confidence,
+      startTimeMs: Math.max(0, now - 1000),
+      endTimeMs: now
+    });
+
+    renderSegments();
+    updateCounts();
+  }
 };
 
-// Prevent repeated captions
+
 if (!result.isFinal) continue;
 
 var last = segments[segments.length - 1];
