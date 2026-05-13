@@ -158,27 +158,60 @@
     recognition.interimResults = true;
     recognition.continuous = true;
 
-    recognition.onresult = function (event) {
-      for (var i = event.resultIndex; i < event.results.length; i++) {
-        var result = event.results[i];
-        var transcript = (result[0] && result[0].transcript || "").trim();
-        if (!transcript) continue;
-        var confidence = result[0].confidence;
-        var now = performance.now() - sessionStart;
-        var segment = {
-          id: Date.now() + "-" + segments.length,
-          text: transcript,
-          isFinal: result.isFinal,
-          confidence: confidence,
-          startTimeMs: Math.max(0, Math.floor(now - 1000)),
-          endTimeMs: Math.floor(now)
-        };
-        segments.push(segment);
-        renderSegments();
-        updateCounts();
-      }
-    };
+    let liveCaption = "";
 
+recognition.onresult = function (event) {
+  let interimTranscript = "";
+  let finalTranscript = "";
+
+  for (let i = event.resultIndex; i < event.results.length; ++i) {
+    const result = event.results[i];
+    const transcript = result[0].transcript.trim();
+
+    if (result.isFinal) {
+      finalTranscript += transcript + " ";
+    } else {
+      interimTranscript += transcript + " ";
+    }
+  }
+
+  // SHOW LIVE TEXT WITHOUT SAVING DUPLICATES
+  const liveBuffer = document.getElementById("full-buffer");
+
+  if (liveBuffer) {
+    liveBuffer.textContent =
+      finalTranscript + interimTranscript;
+  }
+
+  // ONLY SAVE FINAL SENTENCES
+  finalTranscript = finalTranscript.trim();
+
+  if (!finalTranscript) return;
+
+  const last = segments[segments.length - 1];
+
+  // PREVENT DUPLICATE FINALS
+  if (
+    last &&
+    last.text.trim().toLowerCase() ===
+      finalTranscript.toLowerCase()
+  ) {
+    return;
+  }
+
+  const now = performance.now() - sessionStart;
+
+  segments.push({
+    id: Date.now() + Math.random(),
+    text: finalTranscript,
+    confidence: null,
+    startTimeMs: Math.max(0, now - 1500),
+    endTimeMs: now
+  });
+
+  renderSegments();
+  updateCounts();
+};
     recognition.onerror = function (event) {
       provider.status = "error";
       provider.error =
