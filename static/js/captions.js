@@ -187,7 +187,22 @@ if (
   continue;
 }
 
+if (!result.isFinal) {
+  continue;
+}
+
+var last = segments[segments.length - 1];
+var cleanTranscript = transcript.trim().toLowerCase();
+
+if (
+  last &&
+  last.text.trim().toLowerCase() === cleanTranscript
+) {
+  continue;
+}
+
 segments.push(segment);
+
 renderSegments();
 updateCounts();
       }
