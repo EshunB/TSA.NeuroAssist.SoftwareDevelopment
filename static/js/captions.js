@@ -169,16 +169,27 @@
         var confidence = result[0].confidence;
         var now = performance.now() - sessionStart;
         var segment = {
-          id: Date.now() + "-" + segments.length,
-          text: transcript,
-          isFinal: result.isFinal,
-          confidence: confidence,
-          startTimeMs: Math.max(0, Math.floor(now - 1000)),
-          endTimeMs: Math.floor(now)
-        };
-        segments.push(segment);
-        renderSegments();
-        updateCounts();
+  id: nextSegmentId++,
+  speaker: activeSpeaker,
+  text: transcript,
+  ts: nowIso()
+};
+
+// Prevent repeated captions
+if (!result.isFinal) continue;
+
+var last = segments[segments.length - 1];
+
+if (
+  last &&
+  last.text.trim().toLowerCase() === transcript.trim().toLowerCase()
+) {
+  continue;
+}
+
+segments.push(segment);
+renderSegments();
+updateCounts();
       }
     };
 
