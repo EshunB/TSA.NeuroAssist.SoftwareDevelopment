@@ -10,7 +10,7 @@ NeuroAssist turns speech into live captions directly in your browser to removes 
 
 Click or copy and paste the link below into your browser.
 
-https://eshunb.github.io/TSA.SoftwareDevelopment/
+https://eshunb.github.io/TSA.NeuroAssist.SoftwareDevelopment/
 
 ---
 
