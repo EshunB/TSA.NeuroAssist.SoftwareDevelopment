@@ -1,70 +1,33 @@
 # NeuroAssist
 
-Simple **live captions** in the browser. The public site lives in [`docs/`](docs/) for **GitHub Pages** (no server for visitors). Saved sessions stay in the browser on that device only.
+### Real-Time Captions in Your Browser
 
-## Publish on GitHub Pages
-
-1. Put this project on GitHub (see **Create a new repository** below if you need that).
-2. Repo **Settings → Pages**.
-3. **Source**: your default branch, folder **`/docs`**, save.
-4. Open the URL GitHub shows (often `https://<you>.github.io/<repo>/`).
-
-Then open the site and use **Start** → **Captions**. Chrome on a computer works best.
+NeuroAssist turns speech into live captions directly in your browser to removes barriers and increase accessibility for people with hearing disabilities.
 
 ---
 
-## Create a new repository on GitHub with these files
+## Open the App
 
-**On GitHub (in the browser)**
+Click or copy and paste the link below into your browser.
 
-1. Sign in at [github.com](https://github.com).
-2. Click your profile (top right) → **Your repositories** → green **New** (or go to [github.com/new](https://github.com/new)).
-3. **Repository name**: e.g. `NeuroAssist` (any name you like).
-4. Choose **Public** (GitHub Pages is easiest on a public repo; private Pages needs a paid plan).
-5. Leave **Add a README** unchecked if you already have files on your computer to upload.
-6. Click **Create repository**.
-
-**On your computer** (in Terminal, inside this project folder)
-
-If this folder is **not** a git repo yet:
-
-```bash
-git init
-git add .
-git commit -m "Initial commit"
-git branch -M main
-git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
-git push -u origin main
-```
-
-Replace `YOUR_USERNAME` and `YOUR_REPO_NAME` with what you chose on GitHub. GitHub’s empty-repo page also shows these commands with the correct URL—copy from there if you prefer.
-
-If the repo **already** exists and you only need to push updates:
-
-```bash
-git add .
-git commit -m "Update site"
-git push
-```
-
-After the first push, turn on **Pages** from the **`/docs`** folder as above.
+https://eshunb.github.io/TSA.SoftwareDevelopment/
 
 ---
 
-## Optional: local Python server
+## How to Use
 
-From the repo root (for SQLite instead of browser storage):
+1. Open the website  
+2. Click Start Captions
+3. Allow microphone access  
+4. Start speaking  
 
-```bash
-python -m venv .venv && source .venv/bin/activate
-pip install -r requirements.txt
-python app.py
-```
+Live captions will appear automatically.
 
-Open `http://localhost:5000`. That uses Flask + `templates/`, not the static `docs/` tree.
+---
 
-### Regenerate `docs/*.html` after editing the generator
+## Features
 
-```bash
-python3 docs/_build_static_pages.py
-```
+- Real time speech to text captions
+- Browser accessibility support
+- Simple and easy to navigate design
+- Live captioning fast and easy
