@@ -158,7 +158,7 @@
     provider.error = null;
 
     recognition.lang = language;
-    recognition.interimResults = true;
+    recognition.interimResults = false;
     recognition.continuous = true;
 
     recognition.onresult = function (event) {
